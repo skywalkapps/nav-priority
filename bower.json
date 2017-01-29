@@ -1,0 +1,25 @@
+{
+  "name": "priority-nav",
+  "description": "Priority navigation for responsive web",
+  "version": "1.0.0",
+  "keywords": [
+    "navigation",
+    "priority",
+    "bootstrap",
+    "front-end"
+  ],
+  "main": [
+    "./dist/stylesheets/priority-nav.min.css"
+  ],
+  "ignore": [
+    "log",
+    "docs",
+    "grunt",
+    ".editorconfig",
+    ".gitignore"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.0"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,20 @@
+//
+// COMPONENT: Navbar More Link
+// Styles for dynamically generated navbar link item and its dropdown menu
+//
+// @author: Martin Stanek (http://skywalkapps.github.io)
+// ---------------------
+
+// Position element outside of the viewport when it is not necessary. 
+// I hear you, why not just display:none? Because JS needs to know its dimensions, that's why :) 
+.navbar-nav-more[aria-hidden="true"] {
+  position: absolute;
+  top: -9999em;
+  right: 0;
+  visibility: hidden;
+}
+
+// STATE: Dropdown menu is opened
+.navbar-nav-more > a[aria-expanded="true"] + ul {
+  display: block;
+}

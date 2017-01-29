@@ -1,0 +1,35 @@
+# Dependencies
+markdown:         kramdown
+
+kramdown:
+  auto_ids: true
+  input: GFM
+  syntax_highlighter: rouge
+
+# Permalinks
+permalink:        pretty
+
+# Server
+source:           ./src/docs
+destination:      ./docs
+keep_files:		    ['assets', 'libs', 'javascripts', 'stylesheets']
+host:             localhost
+port:             8888
+baseurl:		      ""
+encoding:         UTF-8
+
+# Custom vars
+home:             http://skywalkapps.github.io
+analytics_code:   UA-72436545-1
+current_version:  1.0.0
+repo:             https://github.com/skywalkapps/bootstrap-dropmenu
+
+vendor:			      ./vendor
+download:
+  source:         https://github.com/skywalkapps/nav-priority/archive/master.zip
+  dist:           https://github.com/skywalkapps/nav-priority/releases/download/v1.0.0/nav-priority-1.0.0-dist.zip
+
+blog:             http://skywalkapps.github/articles
+
+# Content
+footer_text:      "NavPriority is part of Skywalk, set of components and extensions for Bootstrap Framework. Skywalk gives you fine quality components, which will save you a lot of development time."
