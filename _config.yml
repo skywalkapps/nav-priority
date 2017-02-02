@@ -22,7 +22,7 @@ encoding:         UTF-8
 home:             http://skywalkapps.github.io
 analytics_code:   UA-72436545-1
 current_version:  1.0.0
-repo:             https://github.com/skywalkapps/bootstrap-dropmenu
+repo:             https://github.com/skywalkapps/nav-priority
 
 vendor:			      ./vendor
 download:

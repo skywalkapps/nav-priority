@@ -6,7 +6,7 @@ To get started, check out <http://skywalkapps.github.io/nav-priority>!
 
 ## Quick start
 
-Priority navigation plugin is written in vanilla JS. It is fully compatible with Bootstrap 3, however you can use it with your custom code. You have following options of installation:
+Priority navigation plugin is written in vanilla JS, so it can be easily  integrated to your existing codebase. It is also fully compatible with Bootstrap 3. You have following options of installation:
 
 - [Download the latest release](https://github.com/skywalkapps/nav-priority/archive/v1.0.0.zip).
 - Clone the repo: `git clone https://github.com/skywalkapps/nav-priority.git`.

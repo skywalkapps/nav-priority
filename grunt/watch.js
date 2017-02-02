@@ -9,11 +9,11 @@ module.exports = {
   },
   styles: {
     files: ['src/stylesheets/**/*.less'],
-    tasks: ['less', 'copy:css']
+    tasks: ['less', 'copy:dist']
   },
   js: {
     files: 'src/javascripts/**/*.js',
-    tasks: ['neuter']
+    tasks: ['neuter', 'copy:dist']
   },
   docs: {
     files: 'src/docs/**/*',
