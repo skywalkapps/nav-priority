@@ -1,15 +1,17 @@
 {
   "name": "priority-nav",
   "description": "Priority navigation for responsive web",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "navigation",
     "priority",
+    "priority+",
+    "responsive",
     "bootstrap",
-    "front-end"
   ],
   "main": [
-    "./dist/stylesheets/priority-nav.min.css"
+    "./dist/javascripts/nav-priority.min.js"
+    "./dist/stylesheets/nav-priority.min.css"
   ],
   "ignore": [
     "log",
