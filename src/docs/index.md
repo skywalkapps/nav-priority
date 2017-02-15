@@ -64,7 +64,11 @@ PriorityNav plugin checks available space and rearranges menu accordingly. When 
 </nav>
 ~~~
 
-NavPriority does have just one requirement, it has to be simple `<ul>` list wrapped in a resizable container. The plugin can be initialized manually by calling `window.navPriority()` with DOM selector as an argument. Alternatively you can add attribute `[data-nav="priority"]` and the menu will be initialized automatically.
+NavPriority does have just one requirement, it has to be simple `<ul>` list wrapped in a resizable container. The plugin is initialized by calling `window.navPriority()` with DOM selector as first argument and optional parameters as second argment.
+
+~~~html
+window.navPriority('[data-nav="priority"]')
+~~~
 
 ### Plugin Options
 
