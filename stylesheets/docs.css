@@ -1,0 +1,17 @@
+/*!
+ * nav-priority v1.1.1 (https://skywalkapps.github.io/nav-priority)
+ * Copyright 2017 Martin Staněk
+ * Licensed under MIT
+ */
+.sw-example-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sw-example-menu ul li {
+  display: inline-block;
+}
+.sw-example-menu ul a {
+  display: block;
+  padding: 0.4em 1em;
+}

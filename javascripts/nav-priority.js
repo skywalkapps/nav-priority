@@ -5,14 +5,16 @@
  *
  * Copyright 2017 Martin Stanek, Twitter: @koucik, Github: @skywalkapps
  * Licensed under MIT (https://github.com/skywalkapps/nav-priority/blob/master/LICENSE)
+ *
+ * Changelog:
+ * v1.0.0: initial implementation
+ * v1.0.1: moved resizeListener to element scope
  * ======================================================================== */
 
 (function(window, Util, document, undefined) { 'use strict';
   // Throttle and debounce delay
-  var delay = 20
+  var delay = 10
   var instances = []
-  // Global reference to resize listener
-  var resizeListener = null
 
   // NAV PRIORITY CLASS
   // -----------------
@@ -20,6 +22,7 @@
   var NavPriority = function (element, options) {
     this.options = options
     this.element = (typeof element == 'string') ? document.querySelector(element) : element
+    this.resizeListener = null
 
     // If the element is not DOM element, do not continue
     if (!Util.isElement(this.element)) throw new Error("this.element has to be DOM Element")
@@ -34,7 +37,7 @@
 
     // Calculate navigation breakpoints
     this.breakpoints = this.getBreakpoints()
-    //
+
     this.overflowBreakpoints = []
 
     // Initialize nav priority default state
@@ -53,7 +56,7 @@
         '</a>' +
         '<ul class="{{dropdownMenuClass}}" aria-labelledby="{{dropdownMenuId}}"></ul>' +
       '</li>',
-    containerWidthOffset: 50,
+    containerWidthOffset: 10,
   }
 
 
@@ -101,7 +104,7 @@
     var itemsLength = navListItems.length
     var dropdownMenuWidth = Math.ceil(navListItems[itemsLength - 1].getBoundingClientRect().width)
 
-    // First breakpoint is the width if the dropdown "More" plus width of exluded items
+    // First breakpoint is the width if the dropdown "More"
     var itemBreakpoint = dropdownMenuWidth;
 
     // For each menu item add its width, ignore excluded
@@ -127,8 +130,8 @@
 
     // Do the priority menu stuff, bind context to the function
     // Listener has to be referenced by a variable so it can be also removed
-    resizeListener = this.handleResize.bind(this)
-    window.addEventListener('resize', resizeListener)
+    this.resizeListener = this.handleResize.bind(this)
+    window.addEventListener('resize', this.resizeListener)
   }
 
 
@@ -194,7 +197,7 @@
   /* Check priority and overflow */
   NavPriority.prototype.reflowNavigation = function () {
     // Cancel execution if handler has been already removed
-    if (!resizeListener) {
+    if (!this.resizeListener) {
       return false
     }
 
@@ -236,8 +239,8 @@
     this.element.removeAttribute('data-nav-priority')
 
     // Remove event listener
-    window.removeEventListener('resize', listener)
-    listener = null // prevent delayed execution of the function (debounced, throttled)
+    window.removeEventListener('resize', this.resizeListener)
+    this.resizeListener = null // prevent delayed execution of the function (debounced, throttled)
 
     // Add all items back to menu
     var overflowIndex = this.overflowList.children.length
