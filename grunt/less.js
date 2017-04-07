@@ -20,6 +20,15 @@ module.exports = {
     }
   },
 
+  docs: {
+    options: {
+      banner: banner,
+    },
+    files: {
+      'docs/stylesheets/docs.css': 'src/stylesheets/docs.less'
+    }
+  },
+
   dist: {
     options: {
       compress: true

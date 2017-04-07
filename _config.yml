@@ -21,13 +21,13 @@ encoding:         UTF-8
 # Custom vars
 home:             http://skywalkapps.github.io
 analytics_code:   UA-72436545-1
-current_version:  1.1.0
+current_version:  1.1.1
 repo:             https://github.com/skywalkapps/nav-priority
 
 vendor:			      ./vendor
 download:
   source:         https://github.com/skywalkapps/nav-priority/archive/master.zip
-  dist:           https://github.com/skywalkapps/nav-priority/releases/download/v1.1.0/nav-priority-1.1.0-dist.zip
+  dist:           https://github.com/skywalkapps/nav-priority/releases/download/v1.1.1/nav-priority-1.1.1-dist.zip
 
 blog:             http://skywalkapps.github/articles
 

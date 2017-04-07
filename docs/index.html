@@ -17,6 +17,7 @@
   <!-- Common stylesheet for all devices -->
   <link rel="stylesheet" href="stylesheets/nav-priority.css">
   <link rel="stylesheet" href="stylesheets/skywalk-docs.min.css">
+  <link rel="stylesheet" href="stylesheets/docs.css">
 
   <!-- Favicons -->
   <meta name="apple-mobile-web-app-title" content="Skywalk">
@@ -62,7 +63,7 @@
         <li>
           <div class="btn-group">
             <a href="https://github.com/skywalkapps/nav-priority/archive/master.zip" class="btn btn-primary navbar-btn" role="button">
-              Download NavPriority v1.0.0
+              Download NavPriority v1.1.1
             </a>
           </div>
         </li>
@@ -94,7 +95,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-9 content">
-            <h3 id="priority-navbar">Priority Navbar</h3>
+            <h3 id="bootstrap-priority-navbar">Bootstrap Priority Navbar</h3>
 
 <p>Responsive menu with many items is very challenging to design and code. Priority+ pattern solves problems with much needed space when you really care about multi device usability. If you want to know more about priority+ patterns, let us recommend you great article <a href="http://bradfrost.com/blog/post/revisiting-the-priority-pattern/">Revisiting the priority pattern</a> by <a href="https://twitter.com/brad_frost">Brad Frost</a>.</p>
 
@@ -106,7 +107,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a href="#" class="navbar-brand">BBC</a> </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9" data-nav="priority">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9" data-nav="priority-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">UK</a></li>
@@ -152,7 +153,55 @@
 </code></pre>
 </div>
 
-<p>NavPriority does have just one requirement, it has to be simple <code class="highlighter-rouge">&lt;ul&gt;</code> list wrapped in a resizable container. The plugin can be initialized manually by calling <code class="highlighter-rouge">window.navPriority()</code> with DOM selector as an argument. Alternatively you can add attribute <code class="highlighter-rouge">[data-nav="priority"]</code> and the menu will be initialized automatically.</p>
+<p>NavPriority does have just one requirement, it has to be simple <code class="highlighter-rouge">&lt;ul&gt;</code> list wrapped in a resizable container. The plugin is initialized by calling <code class="highlighter-rouge">window.navPriority('[data-nav="priority-1"]')</code> with DOM selector as first argument and optional parameters as second argment.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>window.navPriority('[data-nav="priority-1"]')
+</code></pre>
+</div>
+
+<h3 id="custom-priority-navbar">Custom Priority Navbar</h3>
+
+<p>NavPriority plugin is not dependant on any framework, however, if you want to used it with your own styles, make sure the navigation container is resizable.</p>
+
+<div class="sw-example sw-example-resizable" id="navbar-priority-2">
+  <div class="sw-resizable">
+    <nav class="sw-example-menu" data-nav="priority-2">
+      <ul>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">UK</a></li>
+          <li><a href="#">World</a></li>
+          <li><a href="#">Sport</a></li>
+          <li><a href="#">Opinion</a></li>
+          <li><a href="#">Culture</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="#">Lifestyle</a></li>
+          <li><a href="#">Fashion</a></li>
+          <li><a href="#">Environment</a></li>
+          <li><a href="#">Tech</a></li>
+          <li><a href="#">Travel</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"sw-example-menu"</span> <span class="na">data-nav=</span><span class="s">"priority-2"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>UK<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>World<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Sport<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Opinion<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Culture<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Business<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Lifestyle<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Fashion<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Environment<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Tech<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Travel<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre>
+</div>
 
 <h3 id="plugin-options">Plugin Options</h3>
 
@@ -238,7 +287,10 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function(event) {
-  window.navPriority('[data-nav="priority"]')
+  window.navPriority('[data-nav="priority-1"]', {
+    containerWidthOffset: 50
+  })
+  window.navPriority('[data-nav="priority-2"]')
 
   var triggerEvent = function(element, eventName) {
     var event; // The custom event that will be created
@@ -270,7 +322,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           x = (parseFloat(target.getAttribute('data-x')) || 0),
           y = (parseFloat(target.getAttribute('data-y')) || 0);
 
-      if (event.rect.width > 480 && event.rect.width < 960) {
+      if (event.rect.width > 140 && event.rect.width < 960) {
         // update the element's style
         target.parentNode.style.width  = event.rect.width + 'px';
 

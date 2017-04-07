@@ -10,7 +10,10 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function(event) {
-  window.navPriority('[data-nav="priority"]')
+  window.navPriority('[data-nav="priority-1"]', {
+    containerWidthOffset: 50
+  })
+  window.navPriority('[data-nav="priority-2"]')
 
   var triggerEvent = function(element, eventName) {
     var event; // The custom event that will be created
@@ -42,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
           x = (parseFloat(target.getAttribute('data-x')) || 0),
           y = (parseFloat(target.getAttribute('data-y')) || 0);
 
-      if (event.rect.width > 480 && event.rect.width < 960) {
+      if (event.rect.width > 140 && event.rect.width < 960) {
         // update the element's style
         target.parentNode.style.width  = event.rect.width + 'px';
 

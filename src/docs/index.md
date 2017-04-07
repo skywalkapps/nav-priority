@@ -6,7 +6,7 @@ description: Mobile navigation is often treated as show / hide only. Usability t
 
 ---
 
-### Priority Navbar
+### Bootstrap Priority Navbar
 
 Responsive menu with many items is very challenging to design and code. Priority+ pattern solves problems with much needed space when you really care about multi device usability. If you want to know more about priority+ patterns, let us recommend you great article [Revisiting the priority pattern](http://bradfrost.com/blog/post/revisiting-the-priority-pattern/) by [Brad Frost](https://twitter.com/brad_frost).
 
@@ -18,7 +18,7 @@ PriorityNav plugin checks available space and rearranges menu accordingly. When 
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a href="#" class="navbar-brand">BBC</a> </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9" data-nav="priority">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9" data-nav="priority-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">UK</a></li>
@@ -64,10 +64,54 @@ PriorityNav plugin checks available space and rearranges menu accordingly. When 
 </nav>
 ~~~
 
-NavPriority does have just one requirement, it has to be simple `<ul>` list wrapped in a resizable container. The plugin is initialized by calling `window.navPriority()` with DOM selector as first argument and optional parameters as second argment.
+NavPriority does have just one requirement, it has to be simple `<ul>` list wrapped in a resizable container. The plugin is initialized by calling `window.navPriority('[data-nav="priority-1"]')` with DOM selector as first argument and optional parameters as second argment.
 
 ~~~html
-window.navPriority('[data-nav="priority"]')
+window.navPriority('[data-nav="priority-1"]')
+~~~
+
+### Custom Priority Navbar
+
+NavPriority plugin is not dependant on any framework, however, if you want to used it with your own styles, make sure the navigation container is resizable.
+
+<div class="sw-example sw-example-resizable" id="navbar-priority-2">
+  <div class="sw-resizable">
+    <nav class="sw-example-menu" data-nav="priority-2">
+      <ul>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">UK</a></li>
+          <li><a href="#">World</a></li>
+          <li><a href="#">Sport</a></li>
+          <li><a href="#">Opinion</a></li>
+          <li><a href="#">Culture</a></li>
+          <li><a href="#">Business</a></li>
+          <li><a href="#">Lifestyle</a></li>
+          <li><a href="#">Fashion</a></li>
+          <li><a href="#">Environment</a></li>
+          <li><a href="#">Tech</a></li>
+          <li><a href="#">Travel</a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+~~~html
+<nav class="sw-example-menu" data-nav="priority-2">
+  <ul>
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">UK</a></li>
+      <li><a href="#">World</a></li>
+      <li><a href="#">Sport</a></li>
+      <li><a href="#">Opinion</a></li>
+      <li><a href="#">Culture</a></li>
+      <li><a href="#">Business</a></li>
+      <li><a href="#">Lifestyle</a></li>
+      <li><a href="#">Fashion</a></li>
+      <li><a href="#">Environment</a></li>
+      <li><a href="#">Tech</a></li>
+      <li><a href="#">Travel</a></li>
+  </ul>
+</nav>
 ~~~
 
 ### Plugin Options

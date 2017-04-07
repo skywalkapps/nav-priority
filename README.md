@@ -8,7 +8,7 @@ To get started, check out <http://skywalkapps.github.io/nav-priority>!
 
 Priority Navigation is an implementation of priority+ pattern. This plugin is written in vanilla JS, so it can be easily integrated to your existing codebase without other dependencies. It is fully compatible with Bootstrap 3. You have following options of installation:
 
-- [Download the latest release](https://github.com/skywalkapps/nav-priority/archive/v1.1.0.zip).
+- [Download the latest release](https://github.com/skywalkapps/nav-priority/archive/v1.1.1.zip).
 - Clone the repo: `git clone https://github.com/skywalkapps/nav-priority.git`.
 - Install with [Bower](http://bower.io): `bower install nav-priority`.
 
