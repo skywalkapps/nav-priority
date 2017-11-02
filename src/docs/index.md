@@ -114,6 +114,33 @@ NavPriority plugin is not dependant on any framework, however, if you want to us
 </nav>
 ~~~
 
+### Responsivity
+
+In case you want to use different navigation types for different screen sizes, f.e. mobile vs. desktop, you can use small utility BreakpointSwitcher to turn priority nav on / off.
+
+Example implementation used in this demo:
+
+~~~html
+var bs = BreakpointSwitcher.create({
+  '768px': function(enter) {
+    if (enter) {
+      window.navPriority('[data-nav="priority-1"]', {
+        containerSelector: null,
+        containerWidthOffset: 70,
+      });
+
+      window.navPriority('[data-nav="priority-2"]')
+    }
+    else {
+      window.navPriority('[data-nav="priority-1"]', 'destroy');
+      window.navPriority('[data-nav="priority-2"]', 'destroy');
+    }
+  }
+});
+~~~
+
+You need to specify breakpoint, when the navigation is supposed to be enabled or disabled. When the view meets the condition, the navigation is enabled. BreakpointSwitcher uses `window.matchMedia` to test the viewport. You can use `px` or `em` based breakpoints.
+
 ### Plugin Options
 
 This table gives you a quick overview of NavPriority options.

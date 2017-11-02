@@ -10,10 +10,23 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function(event) {
-  window.navPriority('[data-nav="priority-1"]', {
-    containerWidthOffset: 50
-  })
-  window.navPriority('[data-nav="priority-2"]')
+  var bs = BreakpointSwitcher.create({
+    '768px': function(enter) {
+      if (enter) {
+        window.navPriority('[data-nav="priority-1"]', {
+          containerSelector: null,
+          containerWidthOffset: 70,
+        });
+
+        window.navPriority('[data-nav="priority-2"]')
+      }
+      else {
+        window.navPriority('[data-nav="priority-1"]', 'destroy');
+        window.navPriority('[data-nav="priority-2"]', 'destroy');
+      }
+    }
+  });
+
 
   var triggerEvent = function(element, eventName) {
     var event; // The custom event that will be created

@@ -1,5 +1,5 @@
 /*!
- * nav-priority v1.1.1 (https://skywalkapps.github.io/nav-priority)
+ * nav-priority v1.1.2 (https://skywalkapps.github.io/nav-priority)
  * Copyright 2017 Martin Staněk
  * Licensed under MIT
  */.navbar-nav-more[aria-hidden="true"]{position:absolute;top:-9999em;right:0;visibility:hidden}.navbar-nav-more>a[aria-expanded="true"]+ul{display:block}
