@@ -11,25 +11,38 @@
 
   var Util = {}
 
-  var throttled = false
-  Util.throttle = function(callback, delay) {
-    if (!throttled) {
-      callback.call();
-      throttled = true;
+  Util.throttle = function(fn, threshhold, scope) {
+    threshhold || (threshhold = 250);
+    var last,
+        deferTimer;
+    return function () {
+      var context = scope || this;
 
-      setTimeout(function () {
-        throttled = false;
-      }, delay);
-    }
+      var now = +new Date,
+          args = arguments;
+      if (last && now < last + threshhold) {
+        // hold on to it
+        clearTimeout(deferTimer);
+        deferTimer = setTimeout(function () {
+          last = now;
+          fn.apply(context, args);
+        }, threshhold);
+      } else {
+        last = now;
+        fn.apply(context, args);
+      }
+    };
   }
 
-  var timeout;
-  Util.debounce = function(callback, delay) {
-    if (timeout) {
+  Util.debounce = function(fn, delay) {
+    var timeout = null;
+    return function () {
+      var context = this, args = arguments;
       clearTimeout(timeout);
-    }
-
-    timeout = setTimeout(callback, delay);
+      timeout = setTimeout(function () {
+        fn.apply(context, args);
+      }, delay);
+    };
   }
 
   Util.extend = function() {
@@ -48,6 +61,45 @@
   Util.isElement = function(obj) {
     return !!(obj && obj.nodeType === 1);
   }
+
+  /*
+   * Checks if element has defined className
+   */
+  Util.hasClass = function (item, className) {
+    return (item.className.indexOf(className) > -1)
+  };
+
+
+  Util.isSmallScreen = function() {
+    return window.innerWidth <= this.options.navBreakpoint;
+  }
+
+  /*
+   * Handle navigation on window resize (throttled and debounced to increase performance)
+   */
+  Util.handleResize = function() {
+    // Throttle - limit execution of the function by delay interval
+    Util.throttle(this.reflowNavigation.bind(this), delay)
+
+    // Debounce - execute only once after delay expired, ensures it is executed at least once
+    Util.debounce(this.reflowNavigation.bind(this), delay)
+
+    // Condition for small screen, smaller than config.mdbreakpoint or hamburger option enabled
+    var condition = this.isSmallScreen();
+    var change = false;
+
+    // Check switch beetween views (mobile XOR desktop)
+    if(( this.smallScreen || condition ) && !( this.smallScreen && condition )){
+      this.smallScreen = condition;
+      change = true;
+    }
+
+    // Stop if change has not occured
+    if(!change){
+      return false;
+    }
+  }
+
 
   // register module globally
   window.Util = Util
