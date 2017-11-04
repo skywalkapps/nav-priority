@@ -7,10 +7,10 @@
     "priority",
     "priority+",
     "responsive",
-    "bootstrap",
+    "bootstrap"
   ],
   "main": [
-    "./dist/javascripts/nav-priority.min.js"
+    "./dist/javascripts/nav-priority.min.js",
     "./dist/stylesheets/nav-priority.min.css"
   ],
   "ignore": [
