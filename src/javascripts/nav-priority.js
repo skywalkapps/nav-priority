@@ -63,7 +63,8 @@
       '</li>',
     containerSelector: 'ul',
     containerWidthOffset: 10,
-    threshold: 4
+    threshold: 4,
+    menuItemOverflow: null
   }
 
   /*
@@ -189,6 +190,9 @@
   NavPriority.prototype.addToOverflow = function (item, breakpoint) {
     this.overflowList.insertBefore(item, this.overflowList.firstChild)
 
+    if (typeof (this.options.menuItemOverflow) === 'function')
+        this.options.menuItemOverflow(item, true)
+    
     // ADD: link to overflow menu items
     this.overflowBreakpoints.unshift(breakpoint)
 
@@ -215,6 +219,9 @@
     // Note: AppendChild is buggy with nested submenu
     this.navList.insertBefore(item, this.overflowDropdown.parentNode)
 
+    if (typeof (this.options.menuItemOverflow) === 'function')
+        this.options.menuItemOverflow(item, false)
+    
     return this.overflowBreakpoints
   }
 
@@ -303,6 +310,20 @@
     this.toggleOverflowDropdown(this.overflowList.children.length == 0)
 
     return this.element
+  }
+
+  NavPriority.prototype.recalculateBreakpoints = function () {
+    // Remove items, which can be added back to the menu
+    while (this.overflowList.children.length) {
+        this.removeFromOverflow(this.overflowList.children[0], this.overflowBreakpoints[0])
+    }
+    // Calculate navigation breakpoints
+    var newBreakpoints = this.getBreakpoints()
+    // Check against current breakpoints to determine whether anything has changed
+    if (newBreakpoints.length !== this.breakpoints || this.breakpoints.some(function (b, idx) { return newBreakpoints[idx] !== b })) {
+        this.breakpoints = newBreakpoints
+    }
+    this.reflowNavigation()
   }
 
   /*
