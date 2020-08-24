@@ -313,17 +313,17 @@
   }
 
   NavPriority.prototype.recalculateBreakpoints = function () {
-      // Calculate navigation breakpoints
-      var newBreakpoints = this.getBreakpoints()
-      // Check against current breakpoints to determine whether anything has changed
-      if (newBreakpoints.length !== this.breakpoints || this.breakpoints.some(function (b, idx) { return newBreakpoints[idx] !== b })) {
-          // Remove items, which can be added back to the menu
-          while (this.overflowList.children.length) {
-              this.removeFromOverflow(this.overflowList.children[0], this.overflowBreakpoints[0])
-          }
-          this.breakpoints = newBreakpoints
-          this.reflowNavigation()
-      }
+    // Remove items, which can be added back to the menu
+    while (this.overflowList.children.length) {
+        this.removeFromOverflow(this.overflowList.children[0], this.overflowBreakpoints[0])
+    }
+    // Calculate navigation breakpoints
+    var newBreakpoints = this.getBreakpoints()
+    // Check against current breakpoints to determine whether anything has changed
+    if (newBreakpoints.length !== this.breakpoints || this.breakpoints.some(function (b, idx) { return newBreakpoints[idx] !== b })) {
+        this.breakpoints = newBreakpoints
+    }
+    this.reflowNavigation()
   }
 
   /*
